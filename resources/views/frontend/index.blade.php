@@ -3,9 +3,9 @@
 @section('title', 'Home')
 
 @section('content')
-<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+<div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     @foreach($articles as $article)
-    <div class="bg-white rounded-lg shadow overflow-hidden">
+    <div class="bg-white rounded-lg shadow overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg">
         <img src="{{ asset('storage/' . $article->featured_image) }}" alt="{{ $article->title }}" class="w-full h-48 object-cover">
         <div class="p-6">
             <div class="flex items-center text-sm text-gray-500 mb-2">
@@ -35,7 +35,7 @@
     @endforeach
 </div>
 
-<div class="mt-6">
-    {{ $articles->links() }}
+<div class="mt-6 flex justify-center">
+    {{ $articles->links('pagination::tailwind') }}
 </div>
 @endsection
